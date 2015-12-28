@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Missxiaorong's home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.masonry.min.js"></script>
     <script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
@@ -46,7 +49,7 @@
             }
             $(window).scroll(function () {
                 // 当滚动到最底部以上50像素时， 加载新内容
-                if ($(document).height() - $(this).scrollTop() - $(this).height() < 50) {
+                if ($(document).height() - $(this).scrollTop() - $(this).height() < 200) {
                     $('#masonry').append($("#load").html());
                     $('#masonry').BlocksIt({
                         numOfCol:6,
