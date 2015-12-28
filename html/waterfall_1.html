@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Missxiaorong's home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.masonry.min.js"></script>
-    <script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
-    <script type="text/javascript" src="js/blocksit.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.lazyload.min.js"></script>
+    <!--<script type="text/javascript" src="../js/blocksit.min.js"></script>-->
     <style>
 
         .container-fluid {
@@ -52,7 +52,7 @@
                 if ($(document).height() - $(this).scrollTop() - $(this).height() < 200) {
                     $('#masonry').append($("#load").html());
                     $('#masonry').BlocksIt({
-                        numOfCol:6, //图片显示六列
+                        numOfCol:5, //图片显示六列
                         offsetX: 8,
                         offsetY: 8
                     });
@@ -66,8 +66,8 @@
 <body>
 
 <div id="masonry" class="container-fluid">
-    <div class="box"><img src="loading.gif" data-original="images/4.jpg" /></div>
-    <div class="box"><img src="loading.gif" data-original="images/3.jpg" /></div>
+    <div class="box"><img src="loading.gif" data-original="../images/4.jpg" /></div>
+    <div class="box"><img src="loading.gif" data-original="../images/3.jpg" /></div>
     <div class="box"><img src="loading.gif" data-original="images/2.jpg" /></div>
     <div class="box"><img src="loading.gif" data-original="images/1.jpg" /></div>
     <div class="box"><img src="loading.gif" data-original="images/5.jpg" /></div>
