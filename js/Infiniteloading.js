@@ -126,3 +126,31 @@ function getStyle(box,top,left,index){
     },999);
     getStartNum = index;//更新请求数据的条数位置
 }
+var currentWidth = 1100;
+$(window).resize(function() {
+    var winWidth = $(window).width();
+    var conWidth;
+    if(winWidth < 660) {
+        conWidth = 440;
+        col = 2
+    } else if(winWidth < 880) {
+        conWidth = 660;
+        col = 3
+    } else if(winWidth < 1100) {
+        conWidth = 880;
+        col = 4;
+    } else {
+        conWidth = 1100;
+        col = 5;
+    }
+
+    if(conWidth != currentWidth) {
+        currentWidth = conWidth;
+        $('#masonry').width(conWidth);
+        $('#masonry').BlocksIt({
+            numOfCol: col,
+            offsetX: 8,
+            offsetY: 8
+        });
+    }
+});
