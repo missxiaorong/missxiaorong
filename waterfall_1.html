@@ -4,45 +4,45 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Missxiaorong's home</title>
-    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.masonry.min.js"></script>
     <script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
     <script type="text/javascript" src="js/blocksit.min.js"></script>
-
     <style>
 
         .container-fluid {
             padding: 0px;
 
         }
+        /*放置图片*/
         .box {
             margin-bottom: 20px;
             float: left;
             width: 220px;
         }
+        /*图片样式*/
         .box img {
             max-width: 100%
         }
 
     </style>
+
     <script type="text/javascript">
-        $(function() {
+        window.onload = $(function() {
             f_masonry();
             $("img").lazyload({
                 effect:"fadeIn", //淡出效果
-                failurelimit:40,
+                failurelimit:20,//插件找到 20 个不在可见区域的图片是才停止搜索
                 load:f_masonry,
 
             });
-            $(".box").animate({width:220},"slow")
-            $(".box").fadeIn(300);
+
+
+            $(".box").animate({"opacity":"1"},999);//动画效果
+            $(".box").fadeIn(300);//淡出
             function f_masonry() {
                 $('#masonry #load').masonry({
-                    gutterWidth: 10,
                     itemSelector: '.box',
                     isAnimated: true
                 });
@@ -52,11 +52,12 @@
                 if ($(document).height() - $(this).scrollTop() - $(this).height() < 200) {
                     $('#masonry').append($("#load").html());
                     $('#masonry').BlocksIt({
-                        numOfCol:6,
+                        numOfCol:6, //图片显示六列
                         offsetX: 8,
                         offsetY: 8
                     });
-                    $("img").lazyload();
+
+                    $("img").lazyload(); //延迟加载
                 }
             });
         });
