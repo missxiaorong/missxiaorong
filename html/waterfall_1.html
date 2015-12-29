@@ -35,7 +35,7 @@
             f_masonry();
             $("img").lazyload({
                 effect:"fadeIn", //淡出效果
-                failurelimit:40,//插件找到 20 个不在可见区域的图片是才停止搜索
+                failurelimit:200,//插件找到 20 个不在可见区域的图片是才停止搜索
                 load:f_masonry,
 
             });
