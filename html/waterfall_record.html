@@ -15,13 +15,12 @@
             font-size: 1.5em;
         }
         .script{
-            height:100px;
+            height:auto;
             background-color: #D29BE7;
-            text-align: left;
-            margin: 10px;
+
         }
         xmp{
-            margin-left: -15%;
+            margin-left: 0;
         }
         .title_s{
             font-size: 1em;;
@@ -96,63 +95,63 @@
         </div>
 
         <span class="title_s">body代码：</span>
-        <div style="height: 500px;background-color: #C373E2;    margin: 10px;">
+        <div style="height: auto;background-color: #C373E2;  ">
         <xmp class="code">
 
-                <div id="masonry" class="container-fluid">
-                    <div class="box"><img src="loading.gif" data-original="images/4.jpg" /></div>
-                    <div class="box"><img src="loading.gif" data-original="images/3.jpg" /></div>
-                    <div class="box"><img src="loading.gif" data-original="images/2.jpg" /></div>
-                    <div class="box"><img src="loading.gif" data-original="images/1.jpg" /></div>
+
+   <div id="masonry" class="container-fluid">
+       <div class="box"><img src="loading.gif" data-original="images/4.jpg" /></div>
+        <div class="box"><img src="loading.gif" data-original="images/3.jpg" /></div>
+        <div class="box"><img src="loading.gif" data-original="images/2.jpg" /></div>
+        <div class="box"><img src="loading.gif" data-original="images/1.jpg" /></div>
 
 
-                    <div id="load" style="display: none;">
-                        <div class="box"><img src="loading.gif" data-original="images/9.jpg" /></div>
-                        <div class="box"><img src="loading.gif" data-original="images/10.jpg" /></div>
-                        <div class="box"><img src="loading.gif" data-original="images/6.jpg" /></div>
-                        <div class="box"><img src="loading.gif" data-original="images/4.jpg" /></div>
-
-                    </div>
-                </div>
-              </xmp>
-            </div>
+         <div id="load" style="display: none;">
+             <div class="box"><img src="loading.gif" data-original="images/9.jpg" /></div>
+             <div class="box"><img src="loading.gif" data-original="images/10.jpg" /></div>
+             <div class="box"><img src="loading.gif" data-original="images/6.jpg" /></div>
+             <div class="box"><img src="loading.gif" data-original="images/4.jpg" /></div>
+         </div>
+    </div>
+        </xmp>
+        </div>
          <span class="title_s">js代码：</span>
-        <div style="height:auto;background-color: #C373E2;    margin: 10px;">
+        <div style="height:auto;background-color: #C373E2;  ">
         <xmp class="code">
 
-                 <script type="text/javascript">
-                    $(function() {
+        <script type="text/javascript">
+           $(function() {
 
-                        f_masonry();
-                        $("img").lazyload({
-                            effect:"fadeIn",
-                            failurelimit:40,
-                            load:f_masonry
+              f_masonry();
+              $("img").lazyload({
+                   effect:"fadeIn",
+                    failurelimit:40,
+                     load:f_masonry
 
-                        });
-                        $(".box").animate({width:220},"slow")
-                        $(".box").fadeIn(2000);
-                        function f_masonry() {
-                            $('#masonry').masonry({
-                                gutterWidth: 10,
-                                itemSelector: '.box',
-                                isAnimated: true
-                            });
-                        }
-                        $(window).scroll(function () {
-                            // 当滚动到最底部以上50像素时， 加载新内容
-                            if ($(document).height() - $(this).scrollTop() - $(this).height() < 50) {
-                                $('#masonry').append($("#load").html());
-                                $('#masonry').BlocksIt({
-                                    numOfCol: 5,
-                                    offsetX: 8,
-                                    offsetY: 8
-                                });
-                                $("img").lazyload();
-                            }
-                        });
-                    });
-                  </script>
+              });
+               $(".box").animate({width:220},"slow")
+               $(".box").fadeIn(2000);
+               function f_masonry() {
+                   $('#masonry').masonry({
+                       gutterWidth: 10,
+                       itemSelector: '.box',
+                        isAnimated: true
+                   });
+               }
+               $(window).scroll(function () {
+                // 当滚动到最底部以上50像素时， 加载新内容
+                if ($(document).height() - $(this).scrollTop() - $(this).height() < 50) {
+                 $('#masonry').append($("#load").html());
+                 $('#masonry').BlocksIt({
+                   numOfCol: 5,
+                   offsetX: 8,
+                   offsetY: 8
+                 });
+                   $("img").lazyload();
+                 }
+                });
+        });
+       </script>
         </xmp>
            </div>
         <a  style="margin-left: 40%" href="waterfall_1.html">点击查看瀑布流效果</a><br/><br/>
