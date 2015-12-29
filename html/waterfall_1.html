@@ -11,9 +11,10 @@
     <script type="text/javascript" src="js/blocksit.min.js"></script>
     <style>
 		 @media screen and (min-width: 500px) 
-		 and (max-width: 700px){ #masonry{ width: 600px; }img{max-width:90px} }
+		 and (max-width: 700px){ #masonry{ width: 600px; }img{max-width:150px} }
         .container-fluid {
             padding: 0px;
+			margin-left:10px;
 
         }
         /*放置图片*/
@@ -34,13 +35,13 @@
             f_masonry();
             $("img").lazyload({
                 effect:"fadeIn", //淡出效果
-                failurelimit:20,//插件找到 20 个不在可见区域的图片是才停止搜索
+                failurelimit:40,//插件找到 20 个不在可见区域的图片是才停止搜索
                 load:f_masonry,
 
             });
 
 
-            $(".box").animate({"opacity":"1"},999);//动画效果
+            $(".box").animate({"opacity":"1"},200);//动画效果
             $(".box").fadeIn(300);//淡出
             function f_masonry() {
                 $('#masonry #load').masonry({
@@ -76,7 +77,7 @@
                     col = 4;
                 } else {
                     conWidth = 1100;
-                    col = 5;
+                    col = 6;
                 }
 
                 if(conWidth != currentWidth) {

@@ -141,7 +141,7 @@ $(window).resize(function() {
         col = 4;
     } else {
         conWidth = 1100;
-        col = 5;
+        col = 6;
     }
 
     if(conWidth != currentWidth) {
