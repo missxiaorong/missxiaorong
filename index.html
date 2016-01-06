@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
+    <link rel="stylesheet" href="stylesheets/side-comments.css" />
+    <link rel="stylesheet" href="stylesheets/default-theme.css" />
+    <link rel="stylesheet" href="stylesheets/basics.css" />
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<style>
@@ -45,11 +48,24 @@
 <p>图片延迟加载的好处是：<br/>1. 减少页面初次加载请求数；2. 减少初次加载完毕所需要的时间；3. 避免不必要的图片加载.
 <br/>在图片量较大的情况下是可以明显节省初次加载时间的， 可以避免不必要的资源浪费，页面下部可视视窗外的很多元素也许用户根本不会去查看，所以它们的背景图也不必加载，只有当用户看到它们时，才去加载。
     背景图片延时加载，有利于减少服务器压力。<br/>
-    <a href="https://guides.github.com/features/mastering-markdown/">详细的完整步骤如下：</a><br/>图片的瀑布流布局，使用了masonry插件，延迟加载使用了lazyload插件，无限滚动加载使用了blocksit插件。</p>
+    <a href="https://guides.github.com/features/mastering-markdown/">详细的完整步骤如下：</a><br/>图片的瀑布流布局，使用了masonry插件，延迟加载使用了lazyload插件，无限滚动加载使用了blocksit插件。
+          <div id="commentable-container" class="container commentable-container">
+              <p data-section-id="1" class="commentable-section">
+              </p>
+          </div>
+          </p>
 
 <h1><a  href="html/waterfall_record2.html" class="anchor" aria-hidden="true"><span class="octicon octicon-link">jquery瀑布流无限下拉加载(二）</span></a></h1>
 
 <p>实现瀑布流的方式有多种，继上一个使用了已写好的插件，这次介绍另一种方式，用jquery实现瀑布流的无限加载，代码也比较简单。</p>
+
+<h1><a  href="html/mobile_adaption.html" class="anchor" aria-hidden="true"><span class="octicon octicon-link">HTML5页面移动设备自适应宽度总结</span></a></h1>
+
+<p>HTML5页面移动设备自适应宽度总结，记录在为移动设备写页面时需要注意的总结。</p>
+          <!-- UY BEGIN -->
+
+
+
 
 <!--<h3>-->
 <!--<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>-->
@@ -71,6 +87,25 @@
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2078700"></script>
+    <!-- UY END -->
   </body>
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/side-comments.js"></script>
+  <script src="javascripts/test_data.js"></script>
+  <script>
+      $(document).ready(function(){
+          var SideComments = require('side-comments');
+          window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
+          window.sideComments.on('commentPosted', function( comment ) {
+              comment.id = parseInt(Math.random() * (100000 - 1) + 1);
+              sideComments.insertComment(comment);
+          });
+          window.sideComments.on('commentDeleted', function( comment ) {
+              sideComments.removeComment(comment.sectionId, comment.id);
+          });
+      });
+  </script>
 </html>

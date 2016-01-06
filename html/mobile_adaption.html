@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Missxiaorong's home</title>
+
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/github-light.css">
+    <script src="../javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <style>
+        body { font: normal 100% Helvetica, Arial, sans-serif;line-height:normal}
+        .wrapper h1{
+            font-size: 1.5em;
+        }
+        .script{
+            height:auto;
+            background-color: #D29BE7;
+
+        }
+        xmp{
+            margin-left: 0;
+            background-color: #7FA3CB;
+        }
+        .title_s{
+            font-size: 1em;;
+            color: #666666;
+        }
+        img {
+            max-width: 100%;
+        }
+        .show{
+            background-color: #7FA3CB; ;
+        }
+        .blank{
+            height: 5px;
+        }
+
+    </style>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="header">Missxiaorong's home</h1>
+        <p class="header">I love to pursue, to be myself.</p>
+
+        <ul>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">笔记</a></li>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">收藏</a></li>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">随记</a></li>
+        </ul>
+
+        <p class="header">sometimes life is about risking everything for a dream no one can see but you</p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp--please never forgive</p>
+
+    </header>
+    <section>
+        <h1>
+            <a id="welcome-to-github-pages" class="anchor" aria-hidden="true"><span class="octicon octicon-link">HTML5页面移动设备自适应宽度总结(2016.1.6)</span></a></h1>
+        <a target="_blank"  href="waterfall_record2.html">下一篇文章：</a><br/>
+        <span>
+
+
+
+        </span>
+        <p>
+
+
+        </p>
+        <p>只要在页面head标签加入
+            <xmp clas="code">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0.5,
+maximum-scale=2.0, user-scalable=yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no" >
+</head>
+            </xmp>
+
+            viewport是网页默认的高度和宽度<br/>
+            第一行：<br/><div class="blank"></div>
+            width=device-width： 表示宽度是设备屏幕的宽度<br/>
+            initial-scale=1.0：  表示初始的缩放比例<br/>
+            minimum-scale=0.5：  表示最小的缩放比例<br/>
+            maximum-scale=2.0：  表示最大的缩放比例<br/>
+            user-scalable=yes：表示用户是否可以调整缩放比例<br/>
+
+            第二行：<br/>
+        <div class="blank"></div>
+            设定iphone端页面全屏<br/>
+            第三行：<br/>
+        <div class="blank"></div>
+            取消数字被识别为电话号码<br/><br>
+            如果是想要一打开页面，自动以原始比例显示，且不允许用户进行修改，则是：<br/>
+            <xmp>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,
+maximum-scale=2.0,user-scale=no">
+            </xmp>
+            一、网页的布局不使用绝对宽度，也不能使用绝对宽度的元素。<br/><div class="blank"></div>
+            例如：css不能指定像素宽度width:100px;只能指定百分比宽度 width:10%，或者width:auto ;<br/>
+            二、字体大小使用相当大小的字体<br/><div class="blank"></div>
+            <div class="show">
+            body{font:normal 100% Helvetica, Arial, sans-serif;}这句的代码指定，字体的大小是页面默认的大小的100%，即16px<br/><div class="blank"></div>
+            h1{font-size:1.5em;} h1大小是默认字体大小的1.5倍 ，即24px;<br/><div class="blank"></div>
+            small{font-size:0.875em;}small元素的字体是默认字体的0.875倍，即14px<br/></div><br/>
+
+
+            在这里顺便总结下em和rem的使用及区别<br/><div class="blank"></div>
+            1、em是css2引进来的。使用em时，需要注意:<br/><div class="blank"></div>
+            页面默认的字体大小是16px,转换为10px，将会减少一定的计算。<br/>
+           <div class="show">
+            body{font-size:62.5%; /*10 ÷ 16 × 100% = 62.5% */ }  10 ÷ 16 × 100% = 62.5%   使用"1em=10px"改变默认的"1em=16px"<br/><div class="blank"></div>
+            h1{font-size:2.4em;   /*2.4em × 10 = 24px */ }<br/><div class="blank"></div>
+            small{font-size:1.4em;  /*1.4em × 10 = 14px */}<br/></div><br>
+
+            在使用em做单位时一定要知道父元素的的设置，因为"em"是一个相对值，是一个相对于父元素的值,"em"的值是不固定的。<br/>
+            计算公式是:<br/><div class="blank"></div>
+            <p style="background-color: #35BFFF">
+            em = 需要转换的像素值 / <b>父元素</b>的font-size的值<br/></p>
+            2、rem(root em ,根em )是css3新增的一个相对单位。<br/><div class="blank"></div>
+            <p>
+            用rem为元素设定大小时，仍然是相对大小，但相对的只是html根元素，所以它既可以做到只修改根元素就成比地调整所有字体的大小，又可以避免字体
+            大小逐层变化导致的复合混乱效果。</p><div class="blank"></div>
+            <div class="show">
+            body{font-size:62.5%; /*10 ÷ 16 × 100% = 62.5% */ }  10 ÷ 16 × 100% = 62.5%   使用"1em=10px"改变默认的"1em=16px"<br/><div class="blank"></div>
+            h1{font-size:2.4rem;   /*2.4rem × 10 = 24px */ }<br/><div class="blank"></div>
+            small{font-size:1.4rem;  /*1.4rem × 10 = 14px */}<br/></div><br/>
+            计算公式是:<br/><div class="blank"></div>
+            <p style="background-color: #35BFFF">
+            rem = 需要转换的像素值 /<b>html根元素</b>的font-size的值（即body中设定的值）<br/></p>
+
+            三、使用流动布局，即各个区块的位置是浮动的，不是固定不变的。<br/><div class="blank"></div><div class="blank"></div>
+            .main{float:left;width:60%;} .rightBar{float:right;width:30%;}<br/>
+            如果页面宽度太小放不下两个元素，后面的元素会自动滚动到前面元素的下方，而不会在水平方向溢出，避免了水平滚动条的出现。<br/><br>
+            四、图片的自适应<br/><div class="blank"></div>
+            img{max-width:100%;}<br/><br/>
+            五、使用媒体查询<br/><div class="blank"></div>
+        <div class="show">
+            @media screen and (max-width:960px){
+                body{
+                        background:#000;
+                    }
+            }
+            </div>
+            以上是media的一个标准写法，代码意思是，当页面大小小于960px时，执行下面的css.<br/>
+            screen的意思是告知设备在打印页面时使用衬线字体，在屏幕上显示时用无衬线字体。如果网站不需要考虑用户去打印时可以，可以直接写<br/>
+        <div class="show">
+            @media screen and (max-width:960px){
+                body{
+                    background:#000;
+                    }
+            }
+            </div>
+          还有以下几种写法：<br/><div class="blank"></div>
+           <div class="show">
+            @media (min-width:800px) and (max-width:1200px) { ... }<br/>
+            @media (min-width:800px) and (max-width:1200px) and (orientation:portrait) { ... }<br/></div>
+            意思为媒体查询仅在宽度为 800 到 1200 像素且方向是纵向时才能激活。如果其中一个条件为 False，则无法应用媒体查询规则。<br/>
+        <div class="show">
+            @media (min-width:800px) or (orientation:portrait) { ... }<br/></div>
+            如果宽度至少是 800 像素或方向是纵向的，则会应用该规则。<br/>
+        <div class="show">
+            @media (not min-width:800px) { ... }<br/></div><br/>
+            附加：<br/><div class="blank"></div>
+            如果目标是横向模式智能手机，则使用： @media (min-width: 321px) { ... }<br/>
+            如果目标是纵向模式智能手机，则使用： @media (max-width: 320px) { ... }<br/>
+            如果目标是横向模式 Apple iPad，则使用： @media (orientation: landscape) { ... }<br/>
+            如果目标是纵向模式 iPad，则使用： @media (orientation: portrait) { ... }<br/>
+            iPad 上使用的是 orientation 媒体特性，而 width 用于 Apple iPhone 之上。<br/>
+            主要是因为 iPhone 不支持 orientation 媒体特性。<br/>
+
+            注意，由于IE8即不支持HTML5也不支持css3 media,所以在使用media时，需要加载两个js文件，来保证代码实现兼容效果：<br/>
+            <xmp>
+          !--[if IE;9]
+            <script src=https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+          ![endif]
+             </xmp>
+
+                以下代码可以让IE以最高的文档模式展现效果：
+                <xmp>
+                <meta http-equiv="x-ua-compatible" content="IE=edge"，chrome="1">
+            </xmp>
+
+        </p>
+        <p>Ok啦，基本上总结完了，以后遇到其他问题在添加喽~</p>
+
+
+
+    </section>
+    <footer>
+
+    </footer>
+</div>
+
+<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+</body>
+
+
+</html>
