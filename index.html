@@ -4,13 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Missxiaorong's home</title>
-
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
-    <link rel="stylesheet" href="stylesheets/side-comments.css" />
-    <link rel="stylesheet" href="stylesheets/default-theme.css" />
-    <link rel="stylesheet" href="stylesheets/basics.css" />
-    <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<style>
 	.wrapper h1{
@@ -54,7 +49,7 @@
 <p>实现瀑布流的方式有多种，继上一个使用了已写好的插件，这次介绍另一种方式，用jquery实现瀑布流的无限加载，代码也比较简单。</p>
 <h1><a  href="html/mobile_adaption.html" class="anchor" aria-hidden="true"><span class="octicon octicon-link">HTML5页面移动设备自适应宽度总结</span></a></h1>
 <p>HTML5页面移动设备自适应宽度总结，记录在为移动设备写页面时需要注意的总结。</p>
-<h1><a  href="html/mobile_adaption.html" class="anchor" aria-hidden="true"><span class="octicon octicon-link">多张图片实现单独上传前预览，并获取图片基本信息，兼容大多数浏览器</span></a></h1>
+<h1><a  href="html/imageuploadpreview.html" class="anchor" aria-hidden="true"><span class="octicon octicon-link">多张图片实现单独上传前预览，并获取图片基本信息，兼容大多数浏览器</span></a></h1>
 <p>图片本地上传前预览，主要是用HTML5的Fileal API实现</p>
           <!-- UY BEGIN -->
           <div id="uyan_frame"></div>
@@ -68,18 +63,4 @@
     <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2078700"></script>
     <!-- UY END -->
   </body>
-  <script src="javascripts/jquery.js"></script>
-  <script>
-      $(document).ready(function(){
-          var SideComments = require('side-comments');
-          window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
-          window.sideComments.on('commentPosted', function( comment ) {
-              comment.id = parseInt(Math.random() * (100000 - 1) + 1);
-              sideComments.insertComment(comment);
-          });
-          window.sideComments.on('commentDeleted', function( comment ) {
-              sideComments.removeComment(comment.sectionId, comment.id);
-          });
-      });
-  </script>
 </html>
