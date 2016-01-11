@@ -16,8 +16,6 @@
         }
         .script{
             height:auto;
-            background-color: #D29BE7;
-
         }
         xmp{
             margin-left: 0;
@@ -239,7 +237,6 @@ function getStyle(box,top,left,index){
 
          <a target="_blank"  style="margin-left: 30%" href="mobile_adaption.html">下一篇文章：HTML5页面移动设备自适应宽度总结</a>
         </p>
-
         <div id="uyan_frame"></div>
     </section>
     <footer>
@@ -250,19 +247,6 @@ function getStyle(box,top,left,index){
     <!-- UY END -->
   </body>
 
-  <script>
-      $(document).ready(function(){
-          var SideComments = require('side-comments');
-          window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
-          window.sideComments.on('commentPosted', function( comment ) {
-              comment.id = parseInt(Math.random() * (100000 - 1) + 1);
-              sideComments.insertComment(comment);
-          });
-          window.sideComments.on('commentDeleted', function( comment ) {
-              sideComments.removeComment(comment.sectionId, comment.id);
-          });
-      });
-  </script>
 <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 </html>
 
