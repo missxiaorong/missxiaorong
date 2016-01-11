@@ -163,11 +163,25 @@
     <footer>
 
     </footer>
+	 <div id="uyan_frame"></div>
 </div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2078700"></script>
+    <!-- UY END -->
+  </body>
 
+  <script>
+      $(document).ready(function(){
+          var SideComments = require('side-comments');
+          window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
+          window.sideComments.on('commentPosted', function( comment ) {
+              comment.id = parseInt(Math.random() * (100000 - 1) + 1);
+              sideComments.insertComment(comment);
+          });
+          window.sideComments.on('commentDeleted', function( comment ) {
+              sideComments.removeComment(comment.sectionId, comment.id);
+          });
+      });
+  </script>
 <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-
-</body>
-
 
 </html>

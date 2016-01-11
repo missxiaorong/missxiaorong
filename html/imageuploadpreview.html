@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Missxiaorong's home</title>
+
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!--[if lt IE 9]>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="header">Missxiaorong's home</h1>
+        <p class="header">I love to pursue, to be myself.</p>
+
+        <ul>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">笔记</a></li>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">收藏</a></li>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">随记</a></li>
+        </ul>
+
+        <p class="header">sometimes life is about risking everything for a dream no one can see but you</p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp--please never forgive</p>
+    </header>
+    <section>
+        <h1>
+            <a id="welcome-to-github-pages" class="anchor" aria-hidden="true"><span class="octicon octicon-link">多张图片实现单独上传前预览，并获取图片基本信息，兼容大多数浏览器(2016.1.10)</span></a></h1>
+        <a target="_blank"  href="waterfall_record2.html">下一篇文章：</a><br/>
+        <p>
+        </p>
+        <p>图片上传前预览（兼容chrome,Firefox,ie,opera等浏览器）</p>
+        <p> 以下实例代码用Js实现图片上传前的预览功能，主要是使用html5 的 Files API实现，它允许浏览器访问本地文件系统。
+            （其中HTML5的 file input标签支持multiple 和 accept ，multiple属性可控制多文件选择，accept属性控制上传的文件类型。）</p>
+        <p> 先介绍下该API实现了哪些接口：</p>
+        <p>1.Blob接口，表示原始的二进制数据，通过它可以访问到文件的大小和字节数据。</p>
+        <p>2.File接口，保存着文件的只读属性，提供了诸如name、file size、mimetype等只读文件属性。</p>
+        <p>3.FileList，一个File文件组成的数组。</p>
+        <p>FileReader接口，它提供了读取一个文件数据的若干方法和事件。</p>
+        <p>FileError、FileException，错误模型</p>
+        <p>html代码：</p>
+        <xmp>
+<style>
+.bimg{
+barder:1px solid #c0c0c0;
+height: 300px;;
+}
+</style>
+<div class="bimg">
+  <div class="cimg">
+   <p><img src=""></p>
+      <div class="btn">
+        <input type="file" class="file" name="image" accept="image/*"
+       onchange="preview(this)" style="width: 13rem;"/>
+      </div>
+  </div>
+  <div class="cimg">
+    <p><img src=" "></p>
+        <div class="btn">
+         <input type="file" class="file" name="image" accept="image/*"
+       onchange="preview(this)" style="width: 13rem;"/>
+        </div>
+  </div>
+  <div class="cimg">
+    <p><img src=" "></p>
+        <div class="btn">
+            <input type="file" class="file" name="image" accept="image/*"
+       onchange="preview(this)" style="width: 13rem;"/>
+        </div>
+  </div>
+</div>
+<div class="remark">
+    <p>文件名称：<!--name--></p>
+    <p>文件大小：<!--size--> byte</p>
+    <p>文件类型：<!--type--></p>
+    <p>文件最后修改时间：<!--lastModifiedDate--></p>
+</div>
+        </xmp>
+        <p>js代码：</p>
+        <xmp>
+<script type="text/javascript">
+if(!(window.File && window.FileReader && window.FileList && window.Blob)) {
+   alert('您好，请尝试使用支持HTML 5的浏览器！');
+   throw new Error('browser not support File API');
+   }
+   /**
+* * 解析模板文件
+* @param template  模板字符串
+* @param scope 模板作用域
+* return [string]  解析过后的字符串
+*/
+function templateParse(template, scope) {
+    if(typeof template != "string") return ;
+       //正则匹配全局多个英文字母或数字或下划线字符串
+    return template.replace(/<!--\w+--\>/gi, function(matchs) {
+    var returns = scope[matchs.replace(/(<!--)|(--\>)/g, "")];
+    return (returns + "") == "undefined"? "": returns;  //returns返回数据的类型
+    });
+}
+window.addEventListener('load',function(){
+    var inputField = document.querySelector('input[class="file"]'),  //表单输入框
+     remark = document.querySelector('div.remark'),
+     template = remark.innerHTML; //模板文件
+    inputField.addEventListener('change', function(){   //表单获取值改变触发函数
+     var files = this.files,i= 0, t = "";
+      if(!files.length) return;
+      for(;i<files.length; i++) {
+      t += templateParse(template, files[i]);
+      }
+      remark.innerHTML = t;
+    },false);
+}, false);
+
+</script>
+<script type="text/javascript">
+function preview(file) {
+//获得文件路径
+    var objUrl = getObjectURL(file.files[0]);
+//控制台检查是否获取文件路径
+    console.log(objUrl);
+//当前点击的选择的图片显示到当前的图片位置
+    var n = $(file).parent('div.btn').prev('p').find('img').attr('src', objUrl);
+
+}
+//兼容大多数浏览器
+function getObjectURL(file) {
+     var url = null;
+     if (window.createObjectURL != undefined) { // basic
+       url = window.createObjectURL(file);
+    } else if (window.URL != undefined) { // mozilla(firefox)
+       url = window.URL.createObjectURL(file);
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+       url = window.webkitURL.createObjectURL(file);
+    }else {
+        alert("不好意思，您的浏览器不兼容图片预览！")
+    }
+    return url;
+}
+</script>
+        </xmp>
+        <p>效果图如下：</p>
+        <img src="../images/imageupload.png"/>
+        <a target="_blank" style="margin-left: 30%" href="">下一篇文章：</a>
+    </section>
+    <footer>
+
+    </footer>
+</div>
+
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2078700"></script>
+<!-- UY END -->
+</body>
+<script>
+    $(document).ready(function () {
+        var SideComments = require('side-comments');
+        window.sideComments = new SideComments('#commentable-container', currentUser, existingComments);
+        window.sideComments.on('commentPosted', function (comment) {
+            comment.id = parseInt(Math.random() * (100000 - 1) + 1);
+            sideComments.insertComment(comment);
+        });
+        window.sideComments.on('commentDeleted', function (comment) {
+            sideComments.removeComment(comment.sectionId, comment.id);
+        });
+    });
+</script>
+
+</html>
