@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Missxiaorong's home</title>
+
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <script src="../js/top.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!--[if lt IE 9]>
+    <![endif]-->
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    /*js示例中的样式*/
+    .btn{
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        margin-left: 500px;
+        background:url(../images/top.png)
+    }
+    .btn:hover{
+        background-color: red;
+    }
+</style>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="header">Missxiaorong's home</h1>
+        <p class="header">I love to pursue, to be myself.</p>
+
+        <ul>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">笔记</a></li>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">收藏</a></li>
+            <li><a class="buttons github" href="https://github.com/missxiaorong/missxiaorong">随记</a></li>
+        </ul>
+
+        <p class="header">sometimes life is about risking everything for a dream no one can see but you</p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp--please never forgive</p>
+    </header>
+    <section>
+        <h1>
+            <a id="welcome-to-github-pages" class="anchor" aria-hidden="true"><span class="octicon octicon-link">js/jq 两种方式分别实现返回顶部效果(2016.1.11)</span></a></h1>
+        <a target="_blank"  href="imageuploadpreview.html">上一篇文章：</a><br/>
+        <p>
+        </p>
+        <p>现在大多数网站都有返回顶部的效果，下面的总结分别是js和Jq实现返回顶部按钮。本页面使用的是原生js实现的效果。</p>
+
+        <p>html代码：</p>
+        <xmp>
+<body>
+    <div class="main">
+      <img src="images/123.png">
+          <img src="images/123.png">
+            </div>
+    <div id="back-to-top">
+       <a  style="display: none;" href="javascript:;" class="btn" id="btn" title="返回顶部">
+       </a>
+     </div>
+</body>
+        </xmp>
+        <br/>
+        <p>css代码：（其中的随意的颜色设置是观看效果，你可以随意改变，例如本页面将背景颜色换成了你看到的图片）</p>
+
+        <xmp>
+            <style>
+            *{
+            margin: 0;
+            padding: 0;
+            }
+            /*js示例中的样式*/
+            .btn{
+            width: 30px;
+            height: 30px;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            margin-left: 500px;
+            background-color: #0066ff;
+            }
+            .btn:hover{
+            background-color: red;
+            }
+           /*jQuery示例中的样式*/
+            #back-to-top{
+            position:fixed;
+            display:none;
+            bottom:100px;
+            right:80px;
+            width: 30px;;
+            height: 30px;;
+            background-color: red;
+            }
+            </style>
+            </xmp>
+            <br/>
+            <p>js代码</p>
+        <xmp>
+ window.onload=function(){
+     //获取返回顶部id
+     var topbtn=document.getElementById("btn");
+    var timer = null;
+     //添加滚动条监控事件
+    window.onscroll=function(){
+    //获取页面可见区域宽度
+    var pagelookheight = document.documentElement.clientHeight;
+    //获取页面被卷去的高度即（滚动条距离页面开始顶端高度）
+    var backtop = document.body.scrollTop;
+    if(backtop>pagelookheight){
+    topbtn.style.display ="block"   //滚动超过第一屏时返回按钮显示
+    }else{
+    topbtn.style.display = "none"  //滚动条在页面第一屏时返回按钮不存在
+     }
+    }
+     //返回按钮点击事件
+    topbtn.onclick=function(){
+    //alert(11);
+    //设置计时器设定滚动时间
+    timer = setInterval(function(){
+    var backtop = document.body.scrollTop;
+    var speedtop = backtop / 5; //变化速度
+    document.body.scrollTop = backtop-speedtop;//变化高度
+    if(backtop==0){
+    clearInterval(timer);
+    }
+    },30)
+   }
+  }
+        </xmp>
+        <br>
+        <p>jquery代码：</p>
+        <xmp>
+ <script src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+    $(function(){
+        $(window).scroll(function(){
+         if ($(window).scrollTop()>400){
+              $("#back-to-top").fadeIn(1500);
+         } else {
+              $("#back-to-top").fadeOut(1500);
+          }
+        });
+
+        $("#back-to-top").click(function(){
+               $('body,html').animate({scrollTop:0},1000);
+               return false;
+        });
+ });
+
+        </xmp><br/>
+        <p>相比较这两个效果，个人觉得jquery的animate()动画效果对用户更友好，当然你可以随意选择自己喜欢的一种。</p>
+        <a target="_blank" style="margin-left: 30%" href="">下一篇文章：</a>
+        <div id="uyan_frame"></div>
+    </section>
+    <footer>
+        <a  style="display: none;" href="javascript:;" class="btn" id="btntop" title="返回顶部"></a>
+    </footer>
+</div>
+<!-- UY BEGIN -->
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2078700"></script>
+<!-- UY END -->
+</body>
+</html>
