@@ -49,10 +49,6 @@
 <br/>在图片量较大的情况下是可以明显节省初次加载时间的， 可以避免不必要的资源浪费，页面下部可视视窗外的很多元素也许用户根本不会去查看，所以它们的背景图也不必加载，只有当用户看到它们时，才去加载。
     背景图片延时加载，有利于减少服务器压力。<br/>
     <a href="https://guides.github.com/features/mastering-markdown/">详细的完整步骤如下：</a><br/>图片的瀑布流布局，使用了masonry插件，延迟加载使用了lazyload插件，无限滚动加载使用了blocksit插件。
-          <div id="commentable-container" class="container commentable-container">
-              <p data-section-id="1" class="commentable-section">
-              </p>
-          </div>
           </p>
 
 <h1><a  href="html/waterfall_record2.html" class="anchor" aria-hidden="true"><span class="octicon octicon-link">jquery瀑布流无限下拉加载(二）</span></a></h1>
@@ -63,29 +59,12 @@
 
 <p>HTML5页面移动设备自适应宽度总结，记录在为移动设备写页面时需要注意的总结。</p>
           <!-- UY BEGIN -->
+          <div id="uyan_frame"></div>
 
 
-
-
-<!--<h3>-->
-<!--<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>-->
-
-<!--<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>-->
-
-<!--<h3>-->
-<!--<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>-->
-
-<!--<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>-->
-
-<!--<h3>-->
-<!--<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>-->
-
-<!--<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>-->
       </section>
       <footer>
-      
       </footer>
-	  <div id="uyan_frame"></div>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     <!-- UY BEGIN -->
@@ -94,8 +73,6 @@
     <!-- UY END -->
   </body>
   <script src="javascripts/jquery.js"></script>
-  <script src="javascripts/side-comments.js"></script>
-  <script src="javascripts/test_data.js"></script>
   <script>
       $(document).ready(function(){
           var SideComments = require('side-comments');
