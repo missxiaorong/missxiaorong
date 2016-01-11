@@ -362,6 +362,9 @@ img {
     height: 5px;
 }
 
+#uyan_frame{
+	margin-top:10px;
+}
 @media print, screen and (max-width: 960px) {
 
   div.wrapper {
