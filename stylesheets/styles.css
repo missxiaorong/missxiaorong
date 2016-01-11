@@ -355,7 +355,10 @@ img {
     }
 .show{
      background-color: #7FA3CB; ;
-}s
+}
+.col{
+  background-color: #7FA3CB; ;
+}
 .blank{
     height: 5px;
 }
