@@ -1,4 +1,4 @@
-
+﻿
 <!doctype html>
 <html>
 <head>
@@ -12,15 +12,15 @@
             display: block;
         }
     </style>
-    <link rel="stylesheet" href="css/default.css" />
-    <script charset="utf-8" src="js/kindeditor-min.js"></script>
-    <script charset="utf-8" src="js/zh_CN.js"></script>
+    <link rel="stylesheet" href=""../stylesheets/default.css" />
+    <script charset="utf-8" src="../js/kindeditor-min.js"></script>
+    <script charset="utf-8" src="../js/zh_CN.js"></script>
     <script>
         KindEditor.ready(function(K) {
             window.editor = K.create('#editor_id');
         });
         var options = {
-            cssPath : '/css/default.css',
+            cssPath : '/stylesheets/default.css',
             filterMode : true
         };
         var editor = K.create('textarea[name="content"]', options);
